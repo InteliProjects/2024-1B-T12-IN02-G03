@@ -1,0 +1,232 @@
+.profile-body {
+  background: #FFF1E4;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: flex-start;
+}
+
+.profile-heading {
+  font-family: 'Poppins', sans-serif;
+  color: #FE4451;
+  font-size: 5vh;
+  text-align: center;
+  font-weight: 800;  /* Aumentar o peso da fonte */
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+
+.feeling-section {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  position: relative;
+  margin: 7%;
+  max-width: 90%;
+  display: flex;
+  height: 16em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-section {
+  width: 40vw;
+  height: 102vh;
+  background: #FBA324;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2rem;
+}
+
+.feeling-section h3 {
+  font-size: 30px;
+  color: #2E2640;
+  margin-bottom: 20px;
+  margin-top: 1%;
+}
+
+.feelings {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.feeling {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.feeling img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 25em;
+}
+
+.range-style {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 87%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px #ffffff;
+}
+
+.range-style::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  background: #2E2640;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.range-style::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: #2E2640;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button {
+  background-color: #2E2640;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #1d1a2c;
+}
+
+.about-you-container {
+  display: flex;
+  width: 50vw;
+  height: 100vh;
+  flex-direction: column;
+  gap: 5vh;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.about-you {
+  background: #187992;
+  padding: 1vh;
+  text-align: center;
+  color: white;
+  position: relative;
+  width: 80%;
+  height: 30vh;
+  border-radius: 3vh;
+}
+
+.about-you h2 {
+  font-size: 4vh;
+}
+
+.about-you p {
+  font-size: 3vh;
+  margin: 3vh;
+  text-align: left;
+}
+
+.profile-section h2 {
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+}
+
+.profile-picture {
+  width: 350px;
+  height: 350px;
+  background: #D9D9D9;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  color: #FFF;
+  text-align: center;
+  font-size: 2em; 
+  line-height: 1.8em; 
+  width: 80%; 
+  margin: 0 auto; 
+}
+
+.user-info p {
+  margin: 15px 0;
+}
+
+.upload-button {
+  background: #FE4451;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.happiness-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.happiness-circle {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.happiness-circle img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}

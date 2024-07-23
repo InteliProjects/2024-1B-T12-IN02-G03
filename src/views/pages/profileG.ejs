@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>Profile</title>
+</head>
+<body class="profile-body">
+  <div class="main">
+    <!-- Section for self-evaluation and group evaluation -->
+    <div class="about-you-container">
+      <h1 class="profile-heading">TEAM MEMBER RESULTS</h1>
+      <div class="about-you">
+        <h2>Self-evaluation</h2>
+        <p>Collaboration Style: <%= selfCollab["result"] && selfCollab["result"].length > 0 ? selfCollab["result"] : 'N/A' %></p>
+        <p>Decision Making Style: <%= selfDM["style"] && selfDM["style"].length > 0 ? selfDM["style"] : 'N/A' %></p>
+      </div>
+      <div class="about-you">
+        <h2>Group evaluation</h2>
+        <p>Collaboration Style: <%= mostVotedStyles[user.id] ? mostVotedStyles[user.id].collaboration : 'N/A' %></p>
+        <p>Decision Making Style: <%= mostVotedStyles[user.id] ? mostVotedStyles[user.id].decision : 'N/A' %></p>
+      </div>
+    </div>
+
+    <!-- Section for user profile information -->
+    <div class="profile-section">
+      <h2><%= user.firstName %> <%= user.lastName %></h2>
+      <div class="profile-picture">
+        <% if (user.photo) { %>
+          <img id="profile-image" src="<%= user.photo %>" alt="Profile Picture">
+        <% } else { %>
+          <img src="/images/defaultProfile.png" alt="Default Profile Picture">
+        <% } %>
+      </div>
+      <br>
+      <div class="about-you">
+        <p><strong>Nationality:</strong> <%= user.nationality %></p>
+        <p><strong>University:</strong> <%= user.university %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+      </div>
+      
+      <!-- Section for displaying user happiness level -->
+      <div class="user-info">
+        <p><strong>Happiness:</strong></p>
+        <div class="happiness-image">
+          <div class="happiness-circle">
+            <% switch(user.happiness) {
+              case 0: %>
+                <img src="/images/vsad.svg" alt="Very Sad">
+                <% break; 
+              case 1: %>
+                <img src="/images/sss.svg" alt="Sad">
+                <% break; 
+              case 2: %>
+                <img src="/images/neutral.svg" alt="Neutral">
+                <% break; 
+              case 3: %>
+                <img src="/images/hpy.svg" alt="Happy">
+                <% break; 
+              case 4: %>
+                <img src="/images/vhappy.svg" alt="Very Happy">
+                <% break; 
+              default: %>
+                <img src="/images/neutral.svg" alt="Neutral">
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

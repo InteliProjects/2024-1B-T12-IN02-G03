@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Sails App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/importer.css">
+  <!--STYLES END-->
+  <style>
+    /* Estilo para a barra lateral */
+    .sidebar {
+      height: 100%;
+      width: 80px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: transparent; /* Torna o fundo da sidebar transparente */
+      padding-top: 20px;
+      display: flex; /* Mostrar sidebar por padrão */
+      flex-direction: column;
+      align-items: center;
+      transition: width 0.3s ease;
+      z-index: 2; /* Garante que a sidebar fique acima do overlay */
+    }
+
+    .sidebar a, .sidebar button {
+      margin-bottom: 54px; /* Espaçamento inferior de 54 pixels */
+      position: relative;
+    }
+
+    .sidebar button {
+      background-color: #D9D9D9;
+      border: none;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      aspect-ratio: 1/1; /* Manter a proporção 1:1 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+      z-index: 3; /* Garante que os botões fiquem acima do background e do grain */
+    }
+
+    .sidebar button:hover {
+      background-color: #606060;
+    }
+
+    .sidebar img {
+      width: 20px; /* Tamanho padrão da imagem */
+      height: 20px; /* Tamanho padrão da imagem */
+    }
+
+    .sidebar .logo {
+      width: 60px; /* Tamanho específico para a logo */
+      height: 60px; /* Tamanho específico para a logo */
+    }
+
+    .sidebar .selected {
+      position: relative;
+      background-color: #FBA324;
+    }
+
+    .sidebar .selected:hover {
+      background-color: #FF7A00;
+    }
+
+    .sidebar .selected::before {
+      content: url('/images/selected2.svg');
+      position: absolute;
+      top: -12px;
+      left: -10px;
+      width: 80px;
+      height: 80px;
+      z-index: -1; /* Coloca a imagem de fundo atrás do botão */
+    }
+
+    .sidebar .button-tooltip {
+      display: none;
+      position: absolute;
+      left: 100%;
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 3px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      z-index: 3; /* Garante que o tooltip fique acima de todos os elementos */
+    }
+
+    .sidebar button:hover .button-tooltip {
+      display: block;
+    }
+
+    /* Estilo para o retângulo de fundo */
+    .sidebar-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 100%;
+      background-color: #13233A;
+      z-index: 1; /* Coloca o fundo atrás dos botões */
+    }
+
+    /* Estilo para o overlay de grain */
+    .grain-sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 100%;
+      background-image: url('/images/gainsidebar.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.65;
+      mix-blend-mode: soft-light;
+      pointer-events: none; /* Garantir que o overlay não interfira em cliques */
+      z-index: 2; /* Coloca o overlay acima do fundo e abaixo dos botões */
+    }
+
+    /* Estilo para o conteúdo principal */
+    .main-content {
+      margin-left: 80px;
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+      min-height: calc(100vh - 100px); /* Altura mínima para garantir que o conteúdo ocupe a tela inteira */
+      box-sizing: border-box;
+    }
+
+    /* Media query para telas menores */
+    @media (max-width: 600px) {
+      .sidebar {
+        width: 60px;
+      }
+
+      .sidebar-background,
+      .grain-sidebar-overlay {
+        width: 60px;
+      }
+
+      .sidebar .logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .sidebar button {
+        width: 50px;
+        height: 50px;
+      }
+
+      .sidebar img {
+        width: 25px;
+        height: 25px;
+      }
+
+      .main-content {
+        margin-left: 60px;
+      }
+    }
+
+    /* Estilo para o rodapé */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #F5F5F5;
+      color: #333;
+      box-sizing: border-box;
+      box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+      width: calc(100% - 80px);
+      margin-left: 80px;
+      transition: width 0.3s ease, margin-left 0.3s ease;
+      z-index: 1;
+    }
+
+    footer.full-width {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    footer .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    footer .logo img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    footer .logo p {
+      margin: 0;
+      font-weight: bold;
+      padding-right: 20px;
+    }
+
+    footer .description {
+      flex-grow: 1;
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+    }
+
+    footer.not-full-width {
+      width: calc(100% - 80px);
+      margin-left: 80px;
+    }
+
+    /* Media query para telas menores */
+    @media (max-width: 600px) {
+      footer {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+      }
+    }
+
+    /* Garante que o body ocupe toda a altura da tela */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar-background"></div> <!-- Retângulo de fundo -->
+  <div class="grain-sidebar-overlay" id="grainSidebarOverlay"></div> <!-- Overlay de grain -->
+
+  <div class="sidebar" id="sidebar">
+    <a href="/homepage">
+      <img src="/images/webculture.svg" alt="Logo" class="logo">
+    </a>
+
+    <!-- Homepage icon -->
+    <button class="sidebar-button" data-url="/homepage" onclick="location.href='/homepage'">
+      <img src="/images/home.svg" alt="Home">
+      <span class="button-tooltip">Home</span>
+    </button>
+
+    <!-- Self-evaluation icon -->
+    <button class="sidebar-button" data-url="/evaluation" onclick="location.href='/evaluation'">
+      <img src="/images/evaluation.svg" alt="Evaluation">
+      <span class="button-tooltip">Self evaluation</span>
+    </button>
+    
+    <!-- Group evaluation icon -->
+    <button class="sidebar-button" data-url="/groupEvaluation" onclick="location.href='/groupEvaluation'">
+      <img src="/images/feedback.svg" alt="groupEvaluation">
+      <span class="button-tooltip">Group evaluation</span>
+    </button>
+
+    <!-- Profile icon -->
+    <button class="sidebar-button" data-url="/profile" onclick="location.href='/profile'">
+      <img src="/images/user.svg" alt="Profile">
+      <span class="button-tooltip">Profile</span>
+    </button>
+
+    <!-- Group / results icon -->
+    <button class="sidebar-button" data-url="/group" onclick="location.href='/group'">
+      <img src="/images/group.svg" alt="Group">
+      <span class="button-tooltip">Group</span>
+    </button>
+  </div>
+
+  <div class="main-content">
+    <%- body %>
+  </div>
+
+  <!--SCRIPTS-->
+  <script src="/dependencies/sails.io.js"></script>
+  <!--SCRIPTS END-->
+</body>
+</html>

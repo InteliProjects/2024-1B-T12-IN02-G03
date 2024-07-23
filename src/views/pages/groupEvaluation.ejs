@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peers assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+</head>
+<body class="group-evaluation-body">
+    <h1 class="group-evaluation-h1">Let’s evaluate your team members!</h1>
+
+    <form id="group-evaluation" class="group-evaluation" method="POST" action="/submitGroupEvaluation">
+        <div class="centered">
+            <!-- Dropdown menu to select team member -->
+            <select id="toUser" name="toUser" class="dropdown" required>
+                <option value="" disabled selected hidden>Team member</option>
+                <% users.forEach(function(user) { %>
+                    <!-- Iterates through 'users' array to populate options -->
+                    <option value="<%= user.id %>" name="toUser"><%= user.firstName %> <%= user.lastName %></option>
+                <% }); %>
+            </select>
+        </div>
+        <!-- Decision making section -->
+        <div class="dm-group">
+            <img src="images/groupEvaluation.svg" class="yellow-back">
+            <div class="legend">What's the team member's decision-making style?</div>
+            <div class="row-response-dm">
+                <!-- Option: Analytical -->
+                <div type="button" value="analytical" class="response-option-dm dm-option">
+                    <h3 name="decision">Analytical</h3>
+                    <ul>
+                        <li>Thrives on solving complex problems and managing detailed information.</li>
+                        <li>Prioritizes innovation and thorough analysis to achieve the best outcomes.</li>
+                    </ul>
+                </div>
+                <!-- Option: Directive -->
+                <div type="button" value="directive" class="response-option-dm dm-option">
+                    <h3>Directive</h3>
+                    <ul>
+                        <li>Focuses on results and quick decisions using established rules.</li>
+                        <li>Strong and independent in communication and decision-making.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row-response-dm">
+                <!-- Option: Behavioral -->
+                <div type="button" value="behavioral" class="response-option-dm dm-option">
+                    <h3>Behavioral</h3>
+                    <ul>
+                        <li>Team-oriented, empathetic, and persuasive in collaborative settings.</li>
+                        <li>Excels at understanding and responding to group dynamics.</li>
+                    </ul>
+                </div>
+                <!-- Option: Conceptual -->
+                <div type="button" value="conceptual" class="response-option-dm dm-option">
+                    <h3>Conceptual</h3>
+                    <ul>
+                        <li>Creative and achievement-focused, comfortable with exploring possibilities.</li>
+                        <li>Values broad perspectives and considers long-term impacts.</li>
+                    </ul>
+                </div>
+            </div>        
+        </div>    
+        
+        <!-- Collaboration section -->
+        <div class="collab-group">
+            <div class="legend">What's the team member's collaboration style?</div>
+            <div class="row-response-dm">
+                <!-- Option: Director -->
+                <div type="button" value="director" class="response-option-dm collab-option">
+                    <h3>The director</h3>
+                    <p> Directors are often seen as the leader and decision maker and one who initiates discussions often. Because they’re motivated by tangible results and hitting milestones on time and on budget, they have a natural gift for taking charge.</p>
+                </div>
+                <!-- Option: Conformist -->
+                <div type="button" value="conformist" class="response-option-dm collab-option">
+                    <h3>The conformist</h3>
+                    <p>It’s a person who likes to follow the rules to avoid conflict. This person tend to be less cooperative in the bigger team environment. They don’t really like to receive feedback from their colleagues and might have troubles expressing their disagreement openly.</p>
+                </div>
+                <!-- Option: Harmonizer -->
+                <div type="button" value="harmonizer" class="response-option-dm collab-option">
+                    <h3>Harmonizer</h3>
+                    <p>They ensure everyone’s opinions are heard and keep everyone together and are known for building great relationships. They’re always available as a supportive resource for those who need help.</p>
+                </div>
+            </div>
+            <div class="row-response-dm">
+                <!-- Option: Initiator -->
+                <div type="button" value="initiator" class="response-option-dm collab-option">
+                    <h3>Initiator</h3>
+                    <p>They can easily see the bigger picture in whatever they do. They are known for coming up with great ideas and opening up discussions. Because they’re motivated by inspiration or creativity, they’re no stranger to thinking outside the box.</p>
+                </div>
+                <!-- Option: Analyst -->
+                <div type="button" value="analyst" class="response-option-dm collab-option">
+                    <h3>Analyst</h3>
+                    <p>They love to dive into a complex problem and pull it apart in every way until the answer’s found. They’re known for being extremely analytical and prefer to deal with work linearly. They prefer to take time to reflect on new ideas and thoughts.</p>
+                </div>
+            </div>
+
+            <!-- Hidden input fields to store selected values -->
+            <input type="hidden" id="collaboration" name="collaboration" value="">
+            <input type="hidden" id="decision" name="decision" value="">
+            <!-- Submit button to finalize form submission -->
+            <input type="submit" value="Finish the form" id="finish" class="evaluation-finish" onclick="reload()">
+            <!-- Yellow circle image for visual design -->
+            <img src="images/yellowCircle.svg" class="yellow-circle">
+
+        </div>
+    </form>
+    
+</body>
+
+<script>
+    // Function to reload the current page
+    function reload() {
+        window.location.reload();
+    }
+    
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selecting DOM elements
+        const dmOptions = document.querySelectorAll('.dm-option'); // Decision-making options
+        const collabOptions = document.querySelectorAll('.collab-option'); // Collaboration options
+        const toUserSelect = document.getElementById('toUser'); // Dropdown to select team member
+        const formLegendDM = document.querySelector('.dm-group .legend'); // Legend for decision-making section
+        const formLegendCollab = document.querySelector('.collab-group .legend'); // Legend for collaboration section
+    
+        // Event listener for changes in the selected team member
+        toUserSelect.addEventListener('change', function() {
+            // Get the text of the selected option
+            const selectedUser = toUserSelect.options[toUserSelect.selectedIndex].text;
+            // Update legends with the selected user's name
+            formLegendDM.innerText = `What's ${selectedUser}'s decision-making style?`;
+            formLegendCollab.innerText = `What's ${selectedUser}'s collaboration style?`;
+        });
+    
+        // Event listeners for decision-making options
+        dmOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove 'selected' class from all options
+                dmOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add 'selected' class to the clicked option
+                option.classList.add('selected');
+                // Set the value of the hidden input 'decision'
+                document.getElementById('decision').value = option.getAttribute('value');
+            });
+        });
+    
+        // Event listeners for collaboration options
+        collabOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove 'selected' class from all options
+                collabOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add 'selected' class to the clicked option
+                option.classList.add('selected');
+                // Set the value of the hidden input 'collaboration'
+                document.getElementById('collaboration').value = option.getAttribute('value');
+            });
+        });
+    });
+    </script>
+    
+
+</html>

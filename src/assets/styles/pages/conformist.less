@@ -1,0 +1,142 @@
+        .conformist-body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF1E4;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            /* To ensure that the body occupies the full height of the window */
+            margin: 0;
+            /* Remove the default margin from the body */
+        }
+
+        .conformist-container {
+            background-color: none;
+            margin: 20px auto;
+            /* Sets automatic vertical and horizontal margins */
+            width: 80em;
+            height: 250px;
+            display: flex;
+            /* Added to enable flexbox */
+            justify-content: center;
+            /* Aligns content to the center horizontally */
+            align-items: center;
+            /* Aligns content to the center vertically */
+            flex-direction: column;
+            /* Flexbox direction */
+        }
+
+        .conformist-container h1 {
+            font-size: 24px;
+            color: #2E2640;
+        }
+
+        .conformist-container h2 {
+            font-size: 40px;
+            color: #2E2640;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .conformist-container h2 strong {
+            font-weight: bold;
+            color: #2E2640;
+        }
+
+        .conformist-description {
+            font-size: 16px;
+            color: #2E2640;
+            width: 100%;
+            text-align: center;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .conformist-flex-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .conformist-flex-container.row {
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .conformist-box {
+            background-color: #F3F5F8;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding-left: 80px;
+            padding-right: 80px;
+            position: relative;
+            width: 500px;
+            height: 200px;
+            max-width: 400px;
+            /* Maintains original size */
+            margin: 2em 0;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .conformist-box h3 {
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #FE4451;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            width: calc(100%-5em);
+            text-align: center;
+        }
+
+        .conformist-box ul {
+            list-style: disc inside;
+            padding: 0;
+            margin-top: 50px;
+            text-align: left;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .conformist-box ul li {
+            font-size: 16px;
+            color: #555555;
+            margin: 5px 0;
+            align-items: left;
+            justify-content: center;
+        }
+
+        .conformist-input[type="submit"] {
+            background-color: #FE4451;
+            color: #ffffff;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 25px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: auto;
+            /* Define a margem superior como 'auto' para centralizar */
+            margin-bottom: auto;
+            /* Define a margem inferior como 'auto' para centralizar */
+            width: 13em;
+            margin-left: auto;
+            /* Define a margem esquerda como 'auto' para centralizar horizontalmente */
+            margin-right: auto;
+            /* Define a margem direita como 'auto' para centralizar horizontalmente */
+        }
+
+        .conformist-input[type="submit"]:hover {
+            background-color: #8f0710;
+        }

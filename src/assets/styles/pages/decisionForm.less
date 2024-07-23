@@ -1,0 +1,128 @@
+.decisionForm-body {
+    background-color: #FFF1E4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 50vh;
+    box-sizing: border-box;
+    margin: 1em;
+}
+
+.progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 10px;
+    z-index: 10;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #172338;
+    transition: width 0.5s;
+}
+
+.progress-bar.complete {
+    background-color: #187992;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.decisionForm-h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    background-color: #187992;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.decisionForm-legend-section {
+    background-color: #FE4451;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px 10px 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.decisionForm-h3 {
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.decisionForm-rounded-section {
+    background-color: #ffffff;
+    border: 1px solid #FE4451;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.25);
+}
+
+.decisionForm-form {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2em;
+}
+
+.decisionForm-fieldset {
+    border: none;
+}
+
+.decisionForm-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+input[type="radio"] {
+    margin-right: 20px;
+    transform: scale(1.5);
+    appearance: none;
+    border: 2px solid;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    background-color: #363535;
+}
+
+.decisionForm-next {
+    background-color: #FE4451;
+    color: white;
+    border: none;
+    border-radius: 3em;
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 0;
+}
+
+.decisionForm-next:hover {
+    background-color: #d43b43;
+}

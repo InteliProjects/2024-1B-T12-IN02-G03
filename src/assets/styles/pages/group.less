@@ -1,0 +1,153 @@
+body-team {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF1E4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin-bottom: 1em;
+}
+
+h1 {
+    color: #FE4451;
+    text-align: center;
+    font-family: Nunito;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+.group-member-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    align-items: center;
+    width: 76.5em;
+    height: 357px;
+    align-self: stretch;
+    border-radius: 30px;
+    background: var(--colors-base-base-100, #FFF);
+}
+
+.group-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-member h3 {
+    width: 115px;
+    height: 39px;
+    color: #000;
+    text-align: center;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.group-self-evaluation {
+    display: flex;
+    width: 400px;
+    height: 272px;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    background: #187992;
+    flex-direction: column;
+}
+
+.group-self-evaluation h2 {
+    color: var(--colors-base-base-100, #FFF);
+    text-align: center;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.group-self-evaluation p {
+    color: var(--colors-base-base-100, #FFF);
+    font-family: Nunito;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 1em;
+}
+
+.group-group-evaluation {
+    display: flex;
+    width: 400px;
+    height: 272px;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    background: #FBA324;
+    flex-direction: column;
+}
+
+.group-group-evaluation h2 {
+    color: var(--colors-base-base-100, #FFF);
+    text-align: center;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.group-group-evaluation p {
+    color: var(--colors-base-base-100, #FFF);
+    font-family: Nunito;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 1em;
+}
+
+.profile-pic-group {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid transparent;
+    position: relative;
+    margin-top: 1.7rem;
+    border-color: #4CAF50;
+}
+
+.profile-pic-group.online {
+    border-color: #4CAF50;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    background: #D9D9D9;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures the image covers the container while maintaining its aspect ratio */
+    border-radius: 50%;  /* Makes sure the image itself is cropped as a circle */
+}
+
+.without-group {
+    color: white;
+    background-color: #187992;
+    font-weight: 600;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}

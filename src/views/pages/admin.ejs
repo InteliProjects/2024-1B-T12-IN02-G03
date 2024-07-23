@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags for character set and viewport settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <style>
+    /* Styling for the body element */
+    body {
+      background-color: #FFF1E4; /* Set background color to a light shade */
+      font-family: 'Poppins', sans-serif; /* Set the font family */
+      display: flex; /* Use flexbox layout */
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      height: 100vh; /* Full viewport height */
+      margin: 0; /* Remove default margin */
+      flex-direction: column; /* Arrange children in a column */
+    }
+
+    /* Styling for the container of the admin content */
+    .admin-container {
+      background-color: #FFFFFF; /* White background */
+      padding: 20px; /* Padding inside the container */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      text-align: center; /* Center text inside the container */
+      max-width: 700px; /* Maximum width */
+      width: 100%; /* Full width */
+      margin-top: 20px; /* Margin at the top */
+    }
+
+    /* Styling for headings */
+    h1 {
+      color: #2E2640; /* Dark color for the text */
+      font-size: 2.5rem; /* Large font size */
+      margin-bottom: 20px; /* Space below the heading */
+    }
+
+    /* Styling for form groups */
+    .form-group {
+      margin-bottom: 20px; /* Space below each form group */
+      text-align: left; /* Left align the text */
+    }
+
+    /* Styling for labels */
+    label {
+      display: block; /* Display labels as block elements */
+      margin-bottom: 5px; /* Space below the label */
+      color: #2E2640; /* Dark color for the text */
+    }
+
+    /* Styling for select elements and text inputs */
+    select, input[type="text"] {
+      width: 100%; /* Full width */
+      padding: 10px; /* Padding inside the input */
+      border: 1px solid #ccc; /* Light grey border */
+      border-radius: 5px; /* Rounded corners */
+    }
+
+    /* Styling for buttons */
+    button {
+      background-color: #2E2640; /* Dark background color */
+      color: #FFF; /* White text */
+      border: none; /* Remove border */
+      padding: 10px 20px; /* Padding inside the button */
+      border-radius: 5px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+      font-size: 1rem; /* Regular font size */
+    }
+
+    /* Hover effect for buttons */
+    button:hover {
+      background-color: #1d1a2c; /* Darker shade on hover */
+    }
+
+    /* Styling for team section */
+    .team-section {
+      margin-top: 20px; /* Space at the top */
+      text-align: left; /* Left align the text */
+    }
+
+    /* Styling for individual teams */
+    .team {
+      margin-bottom: 20px; /* Space below each team */
+    }
+
+    /* Styling for team headings */
+    .team h2 {
+      font-size: 1.5rem; /* Medium font size */
+      color: #2E2640; /* Dark color for the text */
+    }
+
+    /* Styling for team lists */
+    .team ul {
+      list-style-type: none; /* Remove default list style */
+      padding: 0; /* Remove default padding */
+    }
+
+    /* Styling for team list items */
+    .team ul li {
+      margin: 5px 0; /* Space above and below each list item */
+      color: #2E2640; /* Dark color for the text */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="admin-container">
+    <h1>Admin</h1>
+    
+    <!-- Form to assign a user to a team -->
+    <form action="/admin/assign-user" method="POST">
+      <div class="form-group">
+        <label for="userId">Select User:</label>
+        <!-- Dropdown to select a user without a team -->
+        <select name="userId" id="userId" required>
+          <% usersWithoutTeam.forEach(user => { %>
+            <option value="<%= user.id %>"><%= user.firstName %> <%= user.lastName %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="teamId">Select Team:</label>
+        <!-- Dropdown to select an existing team -->
+        <select name="teamId" id="teamId" required>
+          <% teams.forEach(team => { %>
+            <option value="<%= team.id %>">Team <%= team.id %> (Color: <%= team.color %> Universe: <%= team.universe %>)</option>
+          <% }) %>
+        </select>
+      </div>
+      <button type="submit">Assign User to Team</button>
+    </form>
+    
+    <hr>
+
+    <!-- Form to create a new team -->
+    <form action="/admin/create-team" method="POST">
+      <div class="form-group">
+        <label for="color">Team Color:</label>
+        <!-- Dropdown to select a color for the new team -->
+        <select name="color" id="color" required>
+          <option value="Green">Green</option>
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Orange">Orange</option>
+          <option value="Grey">Grey</option>
+          <option value="Ocher">Ocher</option>
+          <option value="Pink">Pink</option>
+          <option value="Navy">Navy</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Olive">Olive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="universe">Universe:</label>
+        <!-- Dropdown to select a universe for the new team -->
+        <select name="universe" id="universe" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <button type="submit">Create Team</button>
+    </form>
+
+    <hr>
+
+    <!-- Form to filter and view teams -->
+    <form action="/admin/view-teams" method="GET">
+      <div class="form-group">
+        <label for="filterColor">Filter by Team Color:</label>
+        <!-- Dropdown to filter teams by color -->
+        <select name="filterColor" id="filterColor" required>
+          <option value="">Select Color</option>
+          <option value="Green">Green</option>
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Orange">Orange</option>
+          <option value="Grey">Grey</option>
+          <option value="Ocher">Ocher</option>
+          <option value="Pink">Pink</option>
+          <option value="Navy">Navy</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Olive">Olive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="filterUniverse">Filter by Universe:</label>
+        <!-- Dropdown to filter teams by universe -->
+        <select name="filterUniverse" id="filterUniverse" required>
+          <option value="">Select Universe</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <button type="submit">View Team</button>
+    </form>
+
+    <div class="team-section">
+      <!-- Loop through filtered teams to display team details and members -->
+      <% filteredTeams.forEach(team => { %>
+        <div class="team">
+          <h2>Team <%= team.id %> (Color: <%= team.color %> Universe: <%= team.universe %>)</h2>
+          <ul>
+            <!-- Loop through team members to display their details -->
+            <% team.members.forEach(member => { %>
+              <li>ID: <%= member.id %> Name: <%= member.firstName %> <%= member.lastName %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<svg width="545" height="428" viewBox="0 0 545 428" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.7" filter="url(#filter0_bd_1083_4625)">
+<path d="M4 30C4 13.4315 17.4315 0 34 0H511C527.569 0 541 13.4315 541 30V390C541 406.569 527.569 420 511 420H34C17.4315 420 4 406.569 4 390V30Z" fill="#F7F4F2"/>
+</g>
+<path d="M4 20C4 8.95431 12.9543 0 24 0H521C532.046 0 541 8.95431 541 20V47H4V20Z" fill="#FBA324"/>
+<defs>
+<filter id="filter0_bd_1083_4625" x="0" y="-4" width="545" height="432" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1083_4625"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_backgroundBlur_1083_4625" result="effect2_dropShadow_1083_4625"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1083_4625" result="shape"/>
+</filter>
+</defs>
+</svg>

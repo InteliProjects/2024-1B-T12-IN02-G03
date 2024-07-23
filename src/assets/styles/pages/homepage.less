@@ -1,0 +1,510 @@
+.homepage *,
+.homepage *::before,
+.homepage *::after {
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF1E4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Welcome section styles  --> div superior que contém o mapa, o texto de boas vindas e o hapiness metter*/
+.welcome-section-homepage {
+    display: flex;
+
+    #createTaskButton {
+        width: 11rem;
+        height: 4rem;
+        border-radius: 2rem;
+        padding: 1rem;
+        border: none;
+        background: #FE4451;
+
+
+        color: var(--colors-base-base-100, #FFF);
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: normal;
+
+        display: block;
+        margin: 0 auto;
+    }
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px;
+    margin-top: 2em;
+    flex-direction: row;
+    margin-bottom: 9em;
+}
+
+/* Text section styles --> define os estilos dos textos utilizados*/
+.text-section-homepage {
+    text-align: left;
+    width: 40%;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Header styles --> define os estilos dos títuulos utilizados */
+.text-section-homepage h1 {
+    color: #2E2640;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+/* Paragraph styles --> define os estilos dos parágrafos utilizados */
+.text-section-homepage p {
+    color: #2E2640;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin: 0px;
+}
+
+/* Team average container styles --> define os estilos da caixa de média de humor do time */
+/* Team average container styles */
+.team-average-container-homepage {
+    width: 100%;
+    max-width: 500px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+/* Team average container h2 styles */
+.team-average-container-homepage h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    margin-top: -5px;
+    color: #2E2640;
+}
+
+/* Team average styles */
+.team-average-homepage {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+/* Imagem dos emojis de avaliação de humor */
+.team-average-homepage img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Imagem do mapa que fica na welcome section */
+.map-image-homepage {
+    width: 52%;
+    max-width: 800px;
+}
+
+/* Controle deslizante para definição do team-average */
+input[type='range-homepage'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type='range-homepage']:disabled {
+    opacity: 1;
+}
+
+/* Estilo do controle deslizante */
+.range-style-homepage {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px #ffffff;
+}
+
+.range-style-homepage::-webkit-slider-runnable-track,
+.range-style-homepage::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px #ffffff;
+}
+
+.range-style-homepage::-webkit-slider-thumb,
+.range-style-homepage::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: #2E2640;
+    border-radius: 50%;
+    cursor: not-allowed;
+    box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-top: -11px;
+}
+
+/* Team section styles */
+.team-section-homepage {
+    text-align: center;
+    position: relative;
+    margin: 5em 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Team section h2 styles */
+.team-section-homepage h2 {
+    font-size: 2rem;
+    color: #2E2640;
+    margin: 0em 2em 0em;
+}
+
+/* Team members styles */
+.team-members-homepage {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    align-items: center;
+    width: 100%;
+}
+
+/* Member styles */
+.member-homepage {
+    position: relative;
+}
+
+/* Profile pic styles */
+.profile-pic-homepage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid transparent;
+    position: relative;
+    margin-top: 0rem;
+}
+
+.profile-pic-homepage.online {
+    border-color: #4CAF50;
+}
+
+.profile-pic-homepage.busy {
+    border-color: #F44336;
+}
+
+.profile-pic-homepage.offline {
+    border-color: #989898;
+}
+
+.profile-pic-homepage::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2E2640;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.member-homepage:hover .profile-pic-homepage::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Team background styles */
+.team-background2-homepage,
+.team-background-homepage {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -2;
+}
+
+.team-background2-homepage {
+    top: -9em;
+    width: 80em;
+    height: 40em;
+}
+
+.team-background-homepage {
+    top: -5em;
+    width: 100%;
+    max-width: 1150px;
+    height: 30rem;
+    z-index: -1;
+}
+
+/* Tasks section styles */
+.tasks-section-homepage {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15.3em;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    background: #F7F4F2;
+    margin-left: 1.3em;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: center;
+}
+
+/* Task item styles */
+.task-item-homepage {
+    justify-content: space-between;
+    width: 76rem;
+    height: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #ffffff;
+    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Task section h2 styles */
+.tasks-section-homepage h2 {
+    color: #2E2640;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+    margin-top: 2px;
+    align-items: center;
+}
+
+/* Task buttons styles */
+.task-buttons-homepage {
+    position: relative;
+    margin-top: 2em;
+    display: flex;
+    width: 78em;
+    height: 64px;
+    bottom: 1rem;
+    justify-content: center;
+}
+
+button.task-button-homepage {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #2E2640;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-buttons-homepage button:hover {
+    background-color: #6D5D7A;
+}
+
+.task-list-homepage {
+    margin-left: 2px;
+}
+
+/* definição dos estilos dos botões utilizados na sessão de botões de tasks */
+
+#createTaskButton {
+    width: 11rem;
+    height: 4rem;
+    border-radius: 2rem;
+    padding: 1rem;
+    border: none;
+    background: #FE4451;
+
+    color: var(--colors-base-base-100, #FFF);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#createTaskButton:hover {
+    background-color: #d43b43;
+}
+
+
+/*definição do estilo do botão de deletar tasks */
+.delete-task-button-homepage,
+.update-task-button-homepage {
+    border: none;
+    border-radius: 1rem;
+    background-color: #FE4451;
+    padding: 0.4rem;
+    font-family: 'Poppins';
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.delete-task-button-homepage:hover {
+    background-color: #d43b43;
+}
+
+.update-task-button-homepage:hover {
+    background-color: #d43b43;
+}
+
+/* definição dos estilos do background da sessão de tasks */
+.tasks-bg-homepage {
+    width: 1275px;
+    height: 418.92px;
+    flex-shrink: 0;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    background: #F7F4F2;
+}
+
+
+
+/* definição dos estilos das barras de cabeçarios dos cards */
+.cabecario-cards-homepage {
+    width: 80em;
+    height: 46.427px;
+    flex-shrink: 0;
+    border-radius: var(--typography-line-height-leading-5, 20px) var(--typography-line-height-leading-5, 20px) 0px 0px;
+    background: #FE4451;
+
+}
+
+/* definição dos estilos da tela de sobreposiçãop para criação de tasks */
+.modal-homepage {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* definição dos estilos do conteúdo do modal de criação de tasks */
+.modal-content-homepage {
+    width: 1078px;
+    height: 556px;
+    background-color: #fefefe;
+    margin: 5% auto;
+    /* 15% from the top and centered */
+    padding: 2rem;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* definição dos estilos das caixas de texto do modal de criação de tasks */
+.modal-content-homepage input {
+    width: 1010px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: var(--colors-base-base-100, #FFF);
+    font-size: 26px;
+    padding-left: 1rem;
+}
+
+/* definição dos estilos dos títulos das caixas de texto do modal de criação de tasks */
+.modal-content-homepage label {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#taskTitle,
+#taskDescription {
+    margin-top: 1rem;
+}
+
+/* definição dos estilos do botão presente do modal de criação de tasks */
+.modal-content-homepage button {
+    width: 153px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: var(--typography-line-height-leading-5, 20px);
+    background: #FE4451;
+    color: var(--colors-base-base-100, #FFF);
+    border: none;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.modal-content-homepage button:hover {
+    background-color: #d43b43;
+}
+
+
+/* as duas sessões de código abaixo (".close" e ".close:hover, .close:focus") definem o comportamento do botão "x" de fechar o pop-up de criação de tasks */
+.close-homepage {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-homepage:hover,
+.close-homepage:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

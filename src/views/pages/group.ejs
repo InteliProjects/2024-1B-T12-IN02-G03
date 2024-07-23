@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>KNOW YOUR TEAM</h1>
+
+    <% if (typeof users !== 'undefined' && users.length > 0) { %>
+        <% users.forEach(user => { %>
+            <!-- Iterates over each user in the 'users' array -->
+            <div class="group-member-section">
+                <div class="group-member">
+                    <div class="profile-pic profile-picture">
+                        <% if (user.id_user.photo) { %>
+                            <!-- Display user's profile picture if available -->
+                            <img src="<%= user.id_user.photo %>" alt="<%= user.id_user.firstName %>">
+                        <% } else { %>
+                            <!-- Display default profile picture if user has no photo -->
+                            <img src="/images/defaultProfile.png" alt="Default Profile Picture">
+                        <% } %>
+                    </div>
+                    <!-- Display user's full name -->
+                    <h3><%= user.id_user.firstName %> <%= user.id_user.lastName %></h3>
+                </div>
+
+                <div class="group-self-evaluation">
+                    <h2>Self Evaluation</h2>
+                    <!-- Display user's self-evaluated collaboration and decision-making styles -->
+                    <p>Collaboration Style: <%= resultsOfEach[user.id_user.id] ? resultsOfEach[user.id_user.id].collaboration : 'N/A'%></p>
+                    <p>Decision Making Style: <%= resultsOfEach[user.id_user.id] ? resultsOfEach[user.id_user.id].decision : 'N/A' %></p>
+                </div>
+
+                <div class="group-group-evaluation">
+                    <h2>Group Evaluation</h2>
+                    <!-- Display group-evaluated collaboration and decision-making styles for the user -->
+                    <p>Collaboration Style: <%= mostVotedStyles[user.id_user.id] ? mostVotedStyles[user.id_user.id].collaboration : 'N/A' %></p>
+                    <p>Decision Making Style: <%= mostVotedStyles[user.id_user.id] ? mostVotedStyles[user.id_user.id].decision : 'N/A' %></p>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <!-- Display message if there are no users in the group -->
+        <p class="without-group">You are not in a group yet</p>
+    <% } %>
+
+</body>
+<script>
+    console.log(selfResults[user.id_user.id])
+</script>
+</html>

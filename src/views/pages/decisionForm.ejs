@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+    <title>Form Decision Making</title>
+</head>
+
+<body class="decisionForm-body">
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div></div>
+    <h1 class="decisionForm-h1">Decision-making style</h1>
+
+    <form id="decisionForm" class="decisionForm-form" action="/submit" method="post">
+        <!-- Question 1 -->
+        <h2 class="decisionForm-h2">When answering each question, think about the decision you would be making in the work environment, rather than family/friends settings.</h2>
+
+        <div class="decisionForm-legend-section">Question 1</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">When working on projects I:</h3>
+                <label class="decisionForm-label"><input type="radio" name="question1" value="A"> A. Like tasks that are clear and have defined outcomes.</label>
+                <label class="decisionForm-label"><input type="radio" name="question1" value="B"> B. Am comfortable when task and outcomes are not well defined.</label>
+            </fieldset>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="decisionForm-legend-section">Question 2</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">If there are major changes during a project I:</h3>
+                <label class="decisionForm-label"><input type="radio" name="question2" value="A"> A. Tend to be annoyed because I like to stick to the original work.</label>
+                <label class="decisionForm-label"><input type="radio" name="question2" value="B"> B. Easily adapt the work plan to the changes.</label>
+            </fieldset>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="decisionForm-legend-section">Question 3</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">When it comes to planning I rather:</h3>
+                <label class="decisionForm-label"><input type="radio" name="question3" value="A"> A. Make decisions quickly without knowing the outcomes exactly.</label>
+                <label class="decisionForm-label"><input type="radio" name="question3" value="B"> B. Prepare a few options and think through them before I decide.</label>
+            </fieldset>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="decisionForm-legend-section">Question 4</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">In projects I am more a person who:</h3>
+                <label class="decisionForm-label"><input type="radio" name="question4" value="A"> A. Relies on facts and researched data for analyzing the problem and proposing solutions. </label>
+                <label class="decisionForm-label"><input type="radio" name="question4" value="B"> B. Sees the underlying problem as well as potential solutions, which might not be visible for others.</label>
+            </fieldset>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="decisionForm-legend-section">Question 5</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">Between two options, choose one that describes you the best:</h3>
+                <label class="decisionForm-label"><input type="radio" name="question5" value="A"> A. I value the relations within my team and try to make each member feel included and important. I appreciate their opinion and seek their approval before making a final decision. My big motivation is to maintain harmony. </label>
+                <label class="decisionForm-label"><input type="radio" name="question5" value="B"> B. I value co-workers that have a sense of purpose and can speak and act concretely. I prefer to take action, rather than dreaming of impossible opportunities. I prefer to rely on rules in order to move forward. I am motivated by the results my decisions will bring.</label>
+            </fieldset>
+        </div>
+
+        <h1 class="decisionForm-h1">Given Situations</h1>
+
+        <!-- Question 6 -->
+        <div class="decisionForm-legend-section">Question 6</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">You are a team leader and have a worker that is showing poor results, which normally would lead to dismissal of this worker. However, you are also aware that his life circumstances has changed drastically, which causes stress. And might explain his poor performance. Because he/she does not deliver the expected results, other workers do his/her job and become unsatisfied with extra workload. You already tried talking to him/her, but situation hasn`t changed much. What would be you action plan?</h3>
+                <label class="decisionForm-label"><input type="radio" name="question6" value="A"> A. I understand that everyone can encounter problems, but I also have responsibilities as a leader to deliver results and care for the whole team, so I will have to replace this person. </label>
+                <label class="decisionForm-label"><input type="radio" name="question6" value="B"> B. I will do my best to make things work out for both sides. The worker will stay employed, I accept lesser performance, I will see if I can adjust the work and will discuss with other workers why they might have to help the worker.</label>
+            </fieldset>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="decisionForm-legend-section">Question 7</div>
+        <div class="decisionForm-rounded-section">
+            <fieldset class="decisionForm-fieldset">
+                <h3 class="decisionForm-h3">You have been unemployed for the last year and finally you got a good offer from a company, however recently there was an investigation about them using an underpaid workforce to manufacture their goods. It is not a big scandal, but around 30 people has left the place since. Majority of the companies are doing the same in this business. What would be your action plan?</h3>
+                <label class="decisionForm-label"><input type="radio" name="question7" value="A"> A. Because I need a job, I will accept the offer. After all, I can not change the whole system just by refusing this offer. </label>
+                <label class="decisionForm-label"><input type="radio" name="question7" value="B"> B. I will turn down the offer as I do not want to be working for a company under this investigation. I must make a stand for the underpaid workforce, even if I need a job.</label>
+            </fieldset>
+        </div>
+
+        <input type="submit" class="decisionForm-next" value="Next" onclick="location.href='/evaluation'">
+    </form>
+</body>
+
+<script>
+    // function to verify if every question was answered
+    document.getElementById('decisionForm').addEventListener('submit', function(event) {
+        const questions = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7'];
+        let allAnswered = true;
+
+        for (let i = 0; i < questions.length; i++) {
+            const radios = document.getElementsByName(questions[i]);
+            let answered = false;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    answered = true;
+                    break;
+                }
+            }
+            if (!answered) {
+                allAnswered = false;
+                break;
+            }
+        }
+
+        if (!allAnswered) {
+            alert('Por favor, responda todas as perguntas antes de enviar o formulário.');
+            event.preventDefault();
+        } else {
+            // calculate the quantity of itens (A, B, C, D and E) that were answered
+            event.preventDefault();
+            let questions = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7'];
+            let y = 0, x = 0
+
+            for (let i = 0; i <= 2; i++) {
+                const radios = document.getElementsByName(questions[i]);
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        if (radio.value === "A") x--;
+                        else x++
+                    }
+                }
+            }
+
+            for (let i = 3; i <= 6; i++) {
+                const radios = document.getElementsByName(questions[i]);
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        if (radio.value === "A") y--;
+                        else y++
+                    }
+                }
+            }
+
+            const qntAnswersDM = {
+                qntX: x,
+                qntY: y,
+            };
+
+            const values = Object.values(qntAnswersDM);   //list the quantity of each answered item
+            const maxQnt = Math.max(...values);   //see the max value of answered items
+            
+
+            //analyse the collab style based on the most answered item and define url of the result page
+            let urlDM
+            if (x > 0 && y > 0){
+                qntAnswersDM.style = 'conceptual'
+                urlDM = '/conceptual'
+            } 
+            else if (x > 0 && y < 0){
+                qntAnswersDM.style = 'behavioral'
+                urlDM = '/behavioral'
+            }
+            else if (x < 0 && y > 0){
+                qntAnswersDM.style = 'analytical'
+                urlDM = '/analytical'
+            }
+            else {
+                qntAnswersDM.style = 'directive'
+                urlDM = '/directive'
+            }
+
+
+            qntAnswersDM.urlDM
+            location.href= urlDM
+            
+            fetch('/decisionForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(qntAnswersDM)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Erro: ' + data.error);
+                } else {
+                    alert('Formulário preenchido com sucesso!');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+    });
+
+        // Function to update progress bar
+        document.querySelectorAll('input[type=radio]').forEach(radio => {
+            radio.addEventListener('change', updateProgressBar);
+        });
+
+        function updateProgressBar() {
+            const totalQuestions = 7;
+            let answeredQuestions = 0;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const radios = document.getElementsByName('question' + i);
+                for (const radio of radios) {
+                    if (radio.checked) {
+                        answeredQuestions++;
+                        break;
+                    }
+                }
+            }
+
+            const progress = (answeredQuestions / totalQuestions) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = progress + '%';
+            // progressBar.textContent = Math.round(progress) + '%';
+
+            if (progress === 100) {
+                progressBar.classList.add('complete');
+            } else {
+                progressBar.classList.remove('complete');
+            }
+        }
+
+</script>
+</html>

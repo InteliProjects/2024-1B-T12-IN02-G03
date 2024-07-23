@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
+  <title>Profile</title>
+</head>
+<body class="profile-body">
+  <div class="main">
+    <!-- Section for displaying user evaluation results -->
+    <div class="about-you-container">
+      <h1 class="profile-heading">YOUR RESULTS</h1>
+      <!-- Self-evaluation section -->
+      <div class="about-you">
+        <h2>Self-evaluation</h2>
+        <p>Collaboration Style: <%= selfCollab["result"] && selfCollab["result"].length > 0 ? selfCollab["result"] : 'N/A' %></p>
+        <p>Decision Making Style: <%= selfDM["style"] && selfDM["style"].length > 0 ? selfDM["style"] : 'N/A' %></p>
+      </div>
+      <!-- Group evaluation section -->
+      <div class="about-you">
+        <h2>Group evaluation</h2>
+        <p>Collaboration Style: <%= mostVotedStyles[user.id] ? mostVotedStyles[user.id].collaboration : 'N/A' %></p>
+        <p>Decision Making Style: <%= mostVotedStyles[user.id] ? mostVotedStyles[user.id].decision : 'N/A' %></p>
+      </div>
+    </div>
+
+    <!-- Section for displaying user profile information -->
+    <div class="profile-section">
+      <h2><%= user.firstName %> <%= user.lastName %></h2>
+      <!-- Profile picture section -->
+      <div class="profile-picture">
+        <% if (user.photo) { %>
+          <img id="profile-image" src="<%= user.photo %>" alt="Profile Picture">
+        <% } else { %>
+          <img src="/images/defaultProfile.png" alt="Default Profile Picture">
+        <% } %>
+      </div>
+      <!-- Form for uploading profile picture -->
+      <form id="upload-form" enctype="multipart/form-data" style="text-align: center;">
+        <input type="file" id="file-input" name="profile_photo" style="display:none;" onchange="submitForm()">
+        <button type="button" class="upload-button" onclick="document.getElementById('file-input').click()">Upload picture</button>
+      </form>
+
+      <!-- Section for updating user feelings -->
+      <div class="feeling-section">
+        <h3>How are you feeling?</h3>
+        <div class="feelings">
+          <!-- Icons representing different feelings -->
+          <div class="feeling">
+            <img src="/images/vsad.svg" alt="Very Sad">
+          </div>
+          <div class="feeling">
+            <img src="/images/sss.svg" alt="Sad">
+          </div>
+          <div class="feeling">
+            <img src="/images/neutral.svg" alt="Neutral">
+          </div>
+          <div class="feeling">
+            <img src="/images/hpy.svg" alt="Happy">
+          </div>
+          <div class="feeling">
+            <img src="/images/vhappy.svg" alt="Very Happy">
+          </div>
+        </div>
+        <!-- Range input for selecting happiness level -->
+        <div class="slider-container">
+          <input type="range" class="range-style" min="0" max="4" step="1" id="happinessRange" value="<%= user.happiness %>">
+          <button class="submit-button" id="submitHappiness">Submit Happiness</button>
+        </div>
+      </div>
+
+      <!-- Logout Button -->
+      <div class="logout-section">
+        <a href='/logout'><button class="upload-button" id="logoutButton">Logout</button></a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Function to handle profile picture upload
+    function submitForm() {
+      const form = document.getElementById('upload-form');
+      const formData = new FormData(form);
+  
+      // Fetch API to upload profile picture
+      fetch('/api/v1/user/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data) {
+          alert('Upload successful!');
+          // Update profile picture displayed on the page
+          const profileImage = document.getElementById('profile-image');
+          profileImage.src = data.url; // Update src attribute with new image URL
+          profileImage.style.display = 'block'; // Make sure the image is visible
+          location.reload(); // Reload the page to reflect changes
+        } else {
+          alert('Upload failed!');
+          location.reload(); // Reload the page if upload fails
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during upload.'); // Alert user if there's an error
+      });
+    }
+  
+    // Event listener for submitting happiness level
+    document.getElementById('submitHappiness').addEventListener('click', function () {
+      const happiness = document.getElementById('happinessRange').value; // Get selected happiness level
+  
+      // Fetch API to update user's happiness level
+      fetch('/profile/update-happiness', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': '<%= _csrf %>' // CSRF token for security
+        },
+        body: JSON.stringify({ happiness }) // Send JSON with happiness level
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert('An error occurred: ' + data.error); // Alert user if there's an error
+        } else {
+          alert('Happiness submission successful!');
+          location.reload(); // Reload the page if submission is successful
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while submitting your happiness.'); // Alert user if there's an error
+      });
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,133 @@
+.decisionForm-body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF1E4;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 50vh;
+    box-sizing: border-box;
+    margin: 1em;
+}
+
+
+.decision-container {
+    margin: 5em auto 0 auto; /* Define margens: cima, direita, baixo (0), esquerda */
+    width: 80em;
+    height: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.decision-container h1 {
+    font-size: 2em;
+    color: #2E2640;
+    justify-content: flex-start;
+}
+
+.decision-container h2 {
+    font-size: 4em;
+    color: #2E2640;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.decision-container h2 strong {
+    font-weight: bold;
+    color: #2E2640;
+}
+
+.decision-container .description {
+    font-size: 16px;
+    color: #2E2640;
+    width: 60%;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-weight: bolder;
+}
+
+.decision-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.decision-flex-container.row {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.decision-box {
+    background-color: #F3F5F8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-left: 80px;
+    padding-right: 80px;
+    position: relative;
+    width: 80%;
+    height: 45%;
+    margin: 5em 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.decision-box h3 {
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #FE4451;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: calc(100%-1px);
+    text-align: center;
+}
+
+.decision-box ul {
+    list-style: disc inside;
+    padding: 0;
+    margin-top: 50px;
+    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.decision-box ul li {
+    font-size: 16px;
+    color: #555555;
+    margin: 5px 0;
+    align-items: left;
+    justify-content: center;
+}
+
+.decision-input[type="submit"] {
+    background-color: #FE4451;
+    color: #ffffff;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: auto;
+    /* Define a margem superior como 'auto' para centralizar */
+    margin-bottom: auto;
+    /* Define a margem inferior como 'auto' para centralizar */
+    width: 13em;
+    margin-left: auto;
+    /* Define a margem esquerda como 'auto' para centralizar horizontalmente */
+    margin-right: auto;
+    /* Define a margem direita como 'auto' para centralizar horizontalmente */
+}
+
+.decision-input[type="submit"]:hover {
+    background-color: #8f0710;
+}
